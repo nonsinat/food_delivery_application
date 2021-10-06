@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_admin_panel/constant.dart/colors/colors.dart';
 import 'package:food_delivery_admin_panel/screens/homepage/home_page.dart';
+import 'package:food_delivery_admin_panel/screens/homepage/login/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(),
+          builder: (context) => LoginScreen(),
         ),
       ),
     );
@@ -32,13 +33,9 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: primaryColor,
       body: SafeArea(
         child: Center(
-          child: Text(
-            "VIGE",
-            style: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 60,
-                ),
+          child: Image(
+            image: AssetImage("assets/images/logo.png"),
+            width: MediaQuery.of(context).size.width*.8,
           ),
         ),
       ),
