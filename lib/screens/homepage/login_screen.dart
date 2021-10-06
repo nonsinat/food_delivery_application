@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'package:food_delivery_admin_panel/screens/homepage/auth/sign_in.dart';
+import 'package:food_delivery_admin_panel/screens/homepage/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -47,7 +49,16 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SignInButton(
                 Buttons.Google,
-                onPressed: () {},
+                onPressed: () {
+                  SignInAuth().signInWithGoogle().then(
+                        (value) => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => HomePage(),
+                          ),
+                        ),
+                      );
+                },
                 padding: EdgeInsets.all(5),
               ),
               SizedBox(
