@@ -9,6 +9,7 @@ class BoxFood extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 170,
+      margin: EdgeInsets.only(right: 4),
       height: 260,
       decoration: BoxDecoration(
         // color: Color(0xffdad9da),
@@ -29,7 +30,7 @@ class BoxFood extends StatelessWidget {
             child: Image(
               fit: BoxFit.cover,
               image: NetworkImage(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYEbc4IGYsSM8cAHE59ECVZSYf_rC6uvFX6A&usqp=CAU",
+                "https://cdn.shopify.com/s/files/1/0156/0137/products/Basil_plant_1280x960_0fc95446-605c-49e3-aa42-c6f3a171b8ae.jpg",
               ),
             ),
           ),
@@ -50,8 +51,7 @@ class BoxFood extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 Row(
-                  mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Expanded(
                       child: Container(
@@ -65,8 +65,7 @@ class BoxFood extends StatelessWidget {
                         child: Row(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 3),
+                              padding: const EdgeInsets.only(left: 3),
                               child: Text("50 Gram",
                                   style: Theme.of(context)
                                       .textTheme
@@ -94,8 +93,7 @@ class BoxFood extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40),
                         ),
                         child: Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Icon(
                               Icons.remove,

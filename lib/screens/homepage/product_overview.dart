@@ -1,21 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+enum SingleCharacter { fill, outline }
+
 class ProductReview extends StatefulWidget {
-  const ProductReview({Key? key}) : super(key: key);
+  final String productname;
+  final String productImage;
+  const ProductReview({
+    Key? key,
+    required this.productname,
+    required this.productImage,
+  }) : super(key: key);
 
   @override
   _ProductReviewState createState() => _ProductReviewState();
 }
 
 class _ProductReviewState extends State<ProductReview> {
+  SingleCharacter _character = SingleCharacter.fill;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFD7B836),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+            print("back");
+          },
           icon: Icon(Icons.arrow_back_outlined),
         ),
         iconTheme: IconThemeData(color: Colors.black),
@@ -88,7 +100,7 @@ class _ProductReviewState extends State<ProductReview> {
                 height: 10,
               ),
               Text(
-                "Fresh Basil",
+                "${widget.productname}",
                 style: Theme.of(context).textTheme.headline6,
               ),
               SizedBox(
@@ -105,7 +117,7 @@ class _ProductReviewState extends State<ProductReview> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * .4,
                 child: Image.network(
-                  "https://cdn.shopify.com/s/files/1/0156/0137/products/Basil_plant_1280x960_0fc95446-605c-49e3-aa42-c6f3a171b8ae.jpg",
+                  widget.productImage,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -125,28 +137,22 @@ class _ProductReviewState extends State<ProductReview> {
                         height: 10,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.green,
+                          color: Colors.green.shade700,
                         ),
                       ),
                       SizedBox(
                         width: 10,
                       ),
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.green),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Container(
-                          height: 10,
-                          width: 10,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.green,
-                          ),
-                        ),
-                      ),
+                      Radio(
+                          value: _character,
+                          groupValue: _character,
+                          onChanged: (value) {
+                            setState(() {
+                              value = _character;
+                            });
+                            print(value);
+                          },
+                          activeColor: Colors.green[700]),
                       SizedBox(
                         width: 10,
                       ),
@@ -165,13 +171,13 @@ class _ProductReviewState extends State<ProductReview> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(
-                        color: Colors.green,
+                        color: Colors.green.shade700,
                       ),
                     ),
                     child: Text(
                       "+ ADD",
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                            color: Colors.green,
+                            color: Colors.green[700],
                           ),
                     ),
                   ),
