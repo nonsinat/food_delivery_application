@@ -38,37 +38,26 @@ class _SearchItemPageState extends State<SearchItemPage> {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Items",
-                ),
+              ListTile(
+                title: Text("Items"),
               ),
               SizedBox(
                 height: 10,
               ),
               Container(
-                width: MediaQuery.of(context).size.width * .95,
-                height: 50,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  color: Color(0xFfCCCCCC).withOpacity(.5),
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Search for item in the store",
-                      style: TextStyle(
-                        color: Color(0xff8E8E8E),
-                      ),
+                height: 52,
+                margin: EdgeInsets.symmetric(horizontal: 10),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide.none,
                     ),
-                    Icon(
-                      Icons.search,
-                      color: Color(0xff8E8E8E),
-                    ),
-                  ],
+                    hintText: "Search for items in the store",
+                    filled: true,
+                    fillColor: Color(0xFfCCCCCC).withOpacity(.5),
+                    suffixIcon: Icon(Icons.search),
+                  ),
                 ),
               ),
               SizedBox(

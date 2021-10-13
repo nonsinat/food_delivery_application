@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_admin_panel/constant.dart/colors/colors.dart';
+import 'package:food_delivery_admin_panel/screens/Search/search_screen.dart';
 import 'package:food_delivery_admin_panel/screens/homepage/drawer.dart';
 import 'package:food_delivery_admin_panel/screens/homepage/product_overview.dart';
+import 'package:food_delivery_admin_panel/screens/homepage/search_page.dart';
 
-import 'package:food_delivery_admin_panel/widgets/box_food.dart';class HomePage extends StatefulWidget {
+import 'package:food_delivery_admin_panel/widgets/box_food.dart';
+
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -15,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer:DrawerSide(),
+      drawer: DrawerSide(),
       appBar: AppBar(
         backgroundColor: primaryColor,
         leading: Builder(
@@ -36,7 +40,13 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SearchItemPage(),
+                ),
+              );
+            },
             child: Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -68,7 +78,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-   
       body: Container(
         height: MediaQuery.of(context).size.height,
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -246,6 +255,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
- 
 }
